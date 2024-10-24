@@ -1,0 +1,37 @@
+server:
+  port: ${SPRING_APP_PORT}
+  servlet:
+    context-path: /api
+
+spring:
+  application:
+    name: app
+  datasource:
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+    show-sql: true
+
+security:
+    jwt:
+      secret-key: HF0fsI6xcYWXDadzyac8u88bRJT2e9XQxFmSICUZO18=
+      expiration-time: 3600000
+
+api:
+  external:
+    url: "https://api.github.com/users/"
+
+logging:
+  level:
+    root: INFO
+    org.hibernate.SQL: DEBUG
+  file:
+    path: ./logs/application.log
+
